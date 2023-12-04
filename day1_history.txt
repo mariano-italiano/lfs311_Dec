@@ -78,3 +78,105 @@ git push
 cd
 history
 history | awk '$1 > 631' | cut -c 8- > lfs311_Dec/day1_history.txt
+cd lfs311_Dec/
+git add .
+git commit -m "Adding day1 history file"
+git push
+cd /tmp
+wget --user=LFtraining --password=Penguin2014 https://cm.lf.training/LFS311/LFS311_V7.3_SOLUTIONS.tar.xz
+rm LFS311_V7.3_SOLUTIONS.tar.xz 
+wget --user=LFtraining --password=Penguin2014 https://cm.lf.training/LFS311/LFS311_V7.3_SOLUTIONS.tar.xz
+cd
+modinfo e1000
+modinfo vmxnet3
+cd /etc/udev/rules.d/
+ls -la
+ip a 
+ip addr add 192.168.1.190 dev ens33
+ip a s
+ifconfig 
+ip a s
+nmcli connection down ens33 ; nmcli connection up ens33 
+ip a s
+cd
+vi /etc/udev/rules.d/70-custom-ifnames.rules
+ip a s
+history
+history | awk '$1 > 631' | cut -c 8- > lfs311_Dec/day1_history.txt
+nmtui-edit
+vi /etc/sysconfig/network-scripts/
+ip a
+cp -rp /etc/udev/rules.d/70-custom-ifnames.rules lfs311_Dec/config/
+rm /etc/udev/rules.d/70-custom-ifnames.rules 
+reboot
+ip a
+vi /etc/sysconfig/network-scripts/readme-ifcfg-rh.txt 
+vi /etc/NetworkManager/system-connections/ens33.nmconnection 
+nmcli connection show
+cat /etc/NetworkManager/system-connections/ens33.nmconnection
+ip link list
+mkdir /etc/systemd/network
+vi /etc/systemd/network/80-custom-ifnames.link
+nmtui-edit
+ip a 
+cat /etc/NetworkManager/system-connections/ens33.nmconnection
+ip a
+nmcli connection show
+ip link add --help
+ip link add 
+ip link add macvlan1 link eth0 type macvlan mode bridge
+ip a
+ip addr add 192.168.1.190/24 dev macvlan1 
+ip a 
+ip netns add ns1
+ip netns list
+ip link add mv1 link eth0 type macvlan mode bridge
+ip a
+ip link set mv1 netns ns1
+ip a
+ip netns exec ns1 ip link set dev mv1 up
+ip netns exec ns1 ipconfig mv1 192.168.1.191/24 up
+ip netns exec ns1 ifconfig mv1 192.168.1.191/24 up
+ping 192.168.1.191
+ip netns exec ns1 ping 192.168.1.191
+ip netns exec ns1 ping 192.168.1.190
+ip netns exec ns1 ping 192.168.1.191/24
+ip netns exec ns1 ping 192.168.1.191 
+ip netns exec ns1 ip a 
+ip netns exec ns1 ping localhost
+ip netns exec ns1 ping 192.168.1.191
+ip netns del ns1
+ip netns exec ns1 ip a 
+nmcli connection show
+nmcli device show
+nmcli device show eth0
+nmcli connection add con-name dmz ifname macvlan1 type ethernet ip4 192.168.1.192/24 gw 192.168.1.1
+nmcli connection add con-name dmz ifname macvlan1 type ethernet ip4 192.168.1.192/24 gw4 192.168.1.1
+ip con sh
+nmcli c s 
+nmcli device show
+nmcli device show dmz
+nmcli connection sh dmz 
+nmtui
+locales
+setlocale
+localectl 
+localectl list-locales 
+localectl set-locale en_US.UTF-8
+systemctl isolate graphical.target 
+history
+history | awk '$1 > 631' | cut -c 8- > lfs311_Dec/day1_history.txt
+nmtui
+nmcli connection show dmz 
+nmcli connection modify dmz ipv4.addresses 192.168.1.192/24
+nmcli connection modify dmz ipv4.dns-search lab.local
+nmcli connection modify dmz ipv4.method manual
+nmcli c e dmz
+history
+ls -la
+cat .nmcli-history
+nmcli connection show
+nmcli c e dmz
+cat .nmcli-history
+history
+history | awk '$1 > 631' | cut -c 8- > lfs311_Dec/day1_history.txt

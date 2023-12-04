@@ -1,0 +1,1 @@
+SUBSYSTEM=="net",ACTION=="add",ATTR{address}=="00:0c:29:81:d8:dc",ATTR{type}=="1",NAME="internet"
