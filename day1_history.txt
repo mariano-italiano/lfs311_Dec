@@ -180,3 +180,103 @@ nmcli c e dmz
 cat .nmcli-history
 history
 history | awk '$1 > 631' | cut -c 8- > lfs311_Dec/day1_history.txt
+cd lfs311_Dec/
+cp -rp /etc/systemd/network/80-custom-ifnames.link config/
+git status
+git add .
+git commit -m "Adding config files"
+git push
+cd
+ping 192.168.1.1
+curl -v telnet://192.168.1.1:22
+curl -v telnet://192.168.1.1:443
+tracepath google.com
+tracepath --help
+dnf install tracert
+dnf install traceroute-3:2.1.0-16.el9.x86_64 e
+dnf install traceroute-3:2.1.0-16.el9.x86_64 
+traceroute --help
+traceroute google.com
+traceroute marcinkujawski.pl
+traceroute 192.168.1.1
+traceroute 192.168.1.1 -I
+telnet 192.168.1.1 443
+curl -v telnet://192.168.1.1:443
+openssl x509 -in https://192.168.1.1 -text -noout
+openssl s_client -servername https://192.168.1.1 -text -noout
+openssl s_client -servername https://192.168.1.1 
+echo | openssl s_client -servername https://192.168.1.1 
+openssl s_client -connect 192.168.1.1:443 -showcerts
+openssl s_client -connect 192.168.1.1:443 -noout --dates
+openssl s_client -connect 192.168.1.1:443 | openssl x509 -noout --dates
+openssl s_client -connect 192.168.1.1:443 | openssl x509 -noout -dates
+arp
+systemctl status web1.service 
+systemctl start web1.service 
+systemctl status web1.service 
+tcpdump --help
+tcpdump -i eth0 tcp port 8080
+tcpdump -i eth0 tcp port 8080 -w web1.pcap 
+ls -la web1.pcap 
+tcpdump -i any net 192.168.1.0/24
+tcpdump -i any net 192.168.1.0/24 | .home
+tcpdump -i any net 192.168.1.0/24 | grep ".home"
+tcpdump -i any net 192.168.1.0/24 | grep ".home" -w homeTraffic.pcap
+tcpdump -i any net 192.168.1.0/24 -w homeTraffic.pcap | grep ".home" 
+tcpdump -i any src desktop-jgrl3vn.home
+tcpdump -i any src centos9.lab.local
+tcpdump -i eth0 ! host desktop-jgrl3vn.home
+dnf install wireshark
+cp *.pcap /tmp/
+netstat -vatunlp 
+netstat --help
+netstat -vatunp 
+netstat -vatun
+ss -vatnulp
+ss -nulp
+ss -anulp
+ss -atunulp
+ss -atunlp
+netstat -vatun
+netstat -vatunpl
+ss -atunlp
+ping google.com
+sysctl -a | grep -i icmp
+echo "1" > /proc/sys/net/ipv4/icmp_echo_ignore_all 
+sysctl -a | grep -i icmp
+ping google.com
+sysctl -p
+ping google.com
+echo 1 > /proc/sys/net/ipv4/icmp_echo_ignore_all 
+ping google.com
+vi /etc/sysctl.conf 
+sysctl -p
+ping google.com
+echo 0 > /proc/sys/net/ipv4/icmp_echo_ignore_all 
+sysctl -p | forwarding
+sysctl -p | grep -i forwarding
+sysctl -p | grep -i forward
+sysctl -a | grep -i forward
+nslookup google.com
+nslookup 
+nslookup google.com
+vi lfs311_Dec/day1_history.txt 
+history | awk '$1 > 631' | cut -c 8- > lfs311_Dec/day1_history.txt
+history 
+ssh-keygen --help
+ssh-keygen -t rsa 2048
+ssh-keygen -t rsa 
+ls -al .ssh/
+ssh-copy-id student@centos8-server
+ssh 'student@centos8-server'
+vi /etc/ssh/sshd_config
+cat .ssh/id_rsa.pub 
+ssh 'student@centos8-server'
+netstat -vatnlp
+ssh -Nf -L 192.168.1.90:2222:192.168.1.82:22 student@192.168.1.81
+netstat -vatnlp
+ssh -Nf -L 2022:192.168.1.82:22 student@192.168.1.81
+netstat -vatnlp
+ssh -p 22 localhost
+ssh -p 2022 localhost
+history | awk '$1 > 631' | cut -c 8- > lfs311_Dec/day1_history.txt
