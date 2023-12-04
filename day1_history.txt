@@ -1,0 +1,80 @@
+systemctl status sshd
+systemctl status chronyd.service 
+systemctl stop chronyd
+systemctl status chronyd.service 
+systemctl disable chronyd
+ps -ef 
+systemd-analyze 
+systemctl status chronyd
+systemctl enable --now chronyd 
+systemctl status chronyd
+cd /lib/systemd/system
+ls -l runlevel*.target
+systemctl list-units --type target
+systemctl list-units --type target --all
+init 3
+systemctl isolate graphical.target 
+systemctl get-default 
+systemctl set-default multi-user.target 
+ls -la /etc/systemd/system/default.target
+systemctl status chronyd
+cd
+sudo yum remove docker                   docker-client                   docker-client-latest                   docker-common                   docker-latest                   docker-latest-logrotate                   docker-logrotate                   docker-engine
+sudo yum install -y yum-utils
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo yum install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+systemctl enable --now docker
+docker ps -a
+docker rm webserver 
+docker ps -1
+docker ps -a
+docker run hello-world
+docker ps 
+docker ps -a
+docker rm vigorous_shtern 
+docker run -d --name web1 -p 8080:80 nginx
+docker ps 
+cp -rp /usr/lib/systemd/system/sshd.service /etc/systemd/system/web1.service 
+vi /etc/systemd/system/web1.service
+which docker
+vi /etc/systemd/system/web1.service
+systemctl daemon-reload 
+docker ps
+docker stop web1
+docker ps
+systemctl start web1.service 
+systemctl status web1.service 
+docker ps
+systemctl stop web1.service 
+docker ps
+vi /etc/systemd/system/web1.service 
+systemctl status web1.service 
+rm /etc/systemd/system/web1.service
+systemctl daemon-reload 
+ls -la /run/systemd/system
+ls -la  /var/run/
+ls -la  /var/run/sshd.pid 
+cat /var/run/sshd.pid
+pgrep sshd
+pgrep sshd -a
+git clone https://github.com/mariano-italiano/lfs311_Dec.git
+git config --global credential.helper store
+cd lfs311_Dec/
+mkdir config 
+cd 
+cp -rp /usr/lib/systemd/system/sshd.service /etc/systemd/system/web1.service 
+vi /etc/systemd/system/web1.service
+which docker
+vi /etc/systemd/system/web1.service
+systemctl daemon-reload 
+systemctl status web1.service 
+cp -rp /etc/systemd/system/web1.service lfs311_Dec/config/
+git status
+cd lfs311_Dec/
+git status
+git add config/
+git commit -m "Adding config files"
+git push
+cd
+history
+history | awk '$1 > 631' | cut -c 8- > lfs311_Dec/day1_history.txt
