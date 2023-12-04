@@ -1,0 +1,12 @@
+[Unit]
+Description=My docker web1 service
+After=docker.service
+Wants=docker.service 
+
+[Service]
+ExecStart=/bin/docker start -a web1
+ExecStop=/bin/docker stop -t 2 web1
+Restart=always
+
+[Install]
+WantedBy=default.target
