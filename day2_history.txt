@@ -1,0 +1,194 @@
+systemctl restart named
+systemctl status named
+vi /etc/named.conf
+systemctl restart named
+vi /etc/named.conf
+systemctl restart named
+vi /etc/named.conf
+systemctl restart named
+systemctl status named
+vi /etc/named.conf
+systemctl restart named
+vi /var/named/lab.local-int.zone 
+vi /etc/named.conf
+rpm -qa | grep -i named
+rpm -qa | grep -i bind
+cp -rp /var/named/1.168.192.in-addr.arpa.int-zone ~/lfs311_Dec/config/
+cp -rp /var/named/1.168.192.in-addr.arpa.ext-zone ~/lfs311_Dec/config/
+cp -rp /var/named/lab.local-int.zone ~/lfs311_Dec/config/
+cp -rp /var/named/lab.local-ext.zone ~/lfs311_Dec/config/
+cp -rp /etc/named.conf ~/lfs311_Dec/config/
+cp -rp /etc/named.conf ~/lfs311_Dec/config/named-views.conf
+cd 
+cd lfs311_Dec/
+git status
+git add .
+git commit -m "Adding config files for bind"
+git push
+git config --global user.email "markuj5@gmail.com"
+git commit -m "Adding config files for bind"
+git push
+git status
+cd
+vi /etc/named.conf
+ip
+ip a
+ip addr add 192.168.1.190/24 dev ens33 
+ip a
+vi /etc/hosts
+systemctl stop named
+nmtui-edit
+dnf install -y httpd
+cd  /var/www/html/
+ls -la
+vi index.html
+cd
+mkdir /web/{account,sales}
+mkdir /web/{account,sales} -p
+cd web
+ls -la
+cd /web
+ls -la
+vi account/index.html
+vi sales/index.html
+vi /etc/httpd/conf.d/welcome.conf 
+vi /etc/httpd/conf.d/account.conf
+vi /etc/httpd/conf/httpd.conf 
+vi /etc/httpd/conf.d/account.conf
+systemctl restart httpd
+systemctl status httpd
+cp -rp /etc/httpd/conf.d/account.conf /etc/httpd/conf.d/sales.conf
+vi /etc/httpd/conf.d/sales.conf
+systemctl restart httpd
+systemctl status httpd
+vi /etc/httpd/conf.d/sales.conf
+systemctl restart httpd
+dnf install- y lynx
+nf install- y lynxuptime
+uptime
+dnf install -y lynx
+ps -ef | grep firefox
+kill -9 13389
+vi 
+cd 
+vi lfs311_Dec/day1_history.txt 
+history
+history | awk '$1 > 924' | cut -c 8- > lfs311_Dec/day2_history.txt
+systemctl isolate graphical.target 
+vi /etc/httpd/conf.d/sales.conf
+systemctl start httpd
+systemctl status httpd
+lynx -dump http://sales.lab.local
+ping sales.lab.local
+ip a ad 192.168.1.190/24 dev en
+ip a ad 192.168.1.190/24 dev ens33
+ip a
+ping sales.lab.local
+systemctl restart httpd
+ping sales.lab.local
+lynx -dump http://sales.lab.local
+mkdir lfs311_Dec/config/http; cp /etc/httpd/conf.d/sales.conf lfs311_Dec/config/http/sales-named-vhost.conf
+cp -rp /etc/httpd/conf.d/account.conf lfs311_Dec/config/http/account-ip-vhost.conf
+vi /etc/httpd/conf.d/account.conf
+systemctl restart httpd
+vi /etc/hosts
+vi /etc/httpd/conf.d/account.conf
+systemctl restart httpd
+vi /etc/httpd/conf.d/account.conf
+vi /etc/hosts
+systemctl restart httpd
+ip a s
+vi /etc/httpd/conf.d/account.conf
+systemctl restart httpd
+cat /etc/hosts
+vi /etc/httpd/conf.d/account.conf
+mkdir /web/account/secure
+vi /web/account/secure/index.html
+htpasswd -c /etc/httpd/credentials peter
+systemctl restart httpd
+vi /etc/httpd/conf.d/account.conf
+systemctl restart httpd
+vi /etc/httpd/conf.d/account.conf
+ls -la /etc/pki/tls/private/
+openssl genrsa -aes128 2048 > /etc/pki/tls/private/localhost.key
+openssl req -utf8 -new -key /etc/pki/tls/private/localhost.key -x509 -days 365 -out /etc/pki/tls/certs/localhost.crt
+vi /etc/httpd/conf.d/account.conf
+vi /etc/hosts
+ip addr add 192.168.1.191/24 dev ens
+ip addr add 192.168.1.191/24 dev ens33
+systemctl restart httpd
+vi /etc/httpd/conf.d/sales.conf 
+systemctl restart httpd
+nslookup account.lab.local
+ping account.lab.local
+ping sales
+ping centos9
+cat /var/www/html/index.html 
+dnf install mod_ssl -y
+cd /etc/pki/tls/certs/
+ls -la
+ls -la ../private/
+vi /etc/httpd/conf.d/ssl.conf 
+vi /etc/httpd/conf.d/sales.conf 
+systemctl restart httpd
+openssl req -utf8 -new -key /etc/pki/tls/private/localhost.key -out /etc/pki/tls/certs/sales.lab.local.csr
+ls -la /etc/pki/tls/certs/sales.lab.local.csr
+cd /etc/httpd/conf.d/
+ls -la 
+vi sales.conf
+cp -rp sales.conf ~/lfs311_Dec/config/http/sales-ssl.conf
+cd
+vi lfs311_Dec/config/http/sales-ssl.conf
+mkdir /scripts
+cp -rp /web/account/secure/index.html /scripts/
+vi /scripts/index.html 
+vi /etc/httpd/conf.d/sales.conf 
+vi /etc/httpd/conf.d/account.conf 
+vi /etc/httpd/conf.d/alias.conf
+mv /scripts/ /my-scripts
+vi /etc/httpd/conf.d/alias.conf
+vi /my-scripts/script.cgi
+chmod +x /my-scripts/script.cgi 
+systemctl restart httpd
+vi /etc/httpd/conf.d/alias.conf
+vi /etc/httpd/conf.d/account.conf 
+systemctl restart httpd
+vi /etc/httpd/conf.d/account.conf 
+systemctl restart httpd
+vi /etc/httpd/conf.d/account.conf 
+ls -la /my-scripts/
+rm  /my-scripts/index.html 
+ls -la /my-scripts/
+systemctl restart httpd
+vi /etc/httpd/conf.d/account.conf 
+systemctl restart httpd
+ls -la /web/account/
+vi /etc/httpd/conf.d/account.conf 
+vi /my-scripts/script.cgi 
+vi /etc/httpd/conf/httpd.conf 
+grep -v mod_rewrite /etc/httpd/conf.d/*
+grep -r mod_rewrite /etc/httpd/conf.d/*
+vi /etc/httpd/conf.d/00-enable-mods.conf
+httpd -M
+httpd -M | grep -i rewrite
+systemctl restart httpd
+vi /etc/httpd/conf.d/account.conf 
+systemctl restart httpd
+vi /etc/httpd/conf.d/account.conf 
+systemctl restart httpd
+vi /etc/httpd/conf.d/account.conf 
+systemctl restart httpd
+vi /etc/httpd/conf.d/account.conf 
+mkdir /web/account/test
+vi /web/account/test/index.html
+systemctl restart httpd
+vi /etc/httpd/conf.d/account.conf 
+systemctl restart httpd
+vi /etc/httpd/conf.d/account.conf 
+systemctl restart httpd
+vi /etc/httpd/conf.d/account.conf 
+cp -rp /etc/httpd/conf.d/account.conf lfs311_Dec/config/http/account-mods.conf
+cd lfs311_Dec/
+git status
+history
+history | awk '$1 > 924' | cut -c 8- > day2_history.txt
