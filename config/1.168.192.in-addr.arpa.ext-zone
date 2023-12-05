@@ -1,0 +1,11 @@
+$TTL 1D
+@       IN SOA  @ centos9.lab.local. (
+                                        0       ; serial
+                                        1D      ; refresh
+                                        1H      ; retry
+                                        1W      ; expire
+                                        3H )    ; minimum
+@	IN 	NS	centos9.lab.local.
+81	IN	PTR	centos8-server.lab.local.
+82	IN	PTR	centos8-client.lab.local.
+1	IN	PTR	router.lab.local
