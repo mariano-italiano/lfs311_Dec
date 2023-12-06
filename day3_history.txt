@@ -222,3 +222,139 @@ mount centos9:/tmp /nfs/
 mount -o guest //192.168.1.90/smbshare /smbshare/
 mount -o username=peter //192.168.1.90/private /private/
 mount -o username=student //192.168.1.90/private /private/
+vi /etc/hosts.allow
+rm /etc/hosts.allow
+man iptables
+systemctl status firewalld
+systemctl start firewalld
+systemctl status firewalld
+firewall-cmd --state
+firewall-cmd --list-all
+firewall-cmd --get-default-zone
+firewall-cmd --get-zones
+firewall-cmd --zone=home --list-all
+firewall-cmd --zone=dmz --list-all
+firewall-cmd --zone=dmz --list-ports
+firewall-cmd --zone=dmz --list-services
+cd /usr/lib/firewalld/
+ls -la
+ls -la zones/
+ls -la services/
+ls -la services/ | wc -l
+vi services/nfs.xml
+cp -rp services/nfs.xml services/myownservice.xml
+vi services/myownservice.xml
+mv services/myownservice.xml services/app1.xml
+firewall-cmd --reload
+firewall-cmd --get-services
+firewall-cmd --get-services | grep -i app1
+firewall-cmd --new-zone application1 --permanent
+firewall-cmd --get-zones
+firewall-cmd --reload
+firewall-cmd --get-zones
+firewall-cmd --zone application1 --add-service=app1
+firewall-cmd --zone application1 --add-service=app1 --permanent
+firewall-cmd --zone application1 --add-service=https --permanent
+firewall-cmd --zone application1 --add-port=111 --permanent
+firewall-cmd --zone application1 --add-port=111/tcp --permanent
+firewall-cmd --reload
+firewall-cmd --get-zones
+firewall-cmd --zone application1 --list-all
+cd
+history | awk '$1 > 1006' | cut -c 8- > lfs311_Dec/day3_history.txt
+cat lfs311_Dec/day3_history.txt | wc -l
+vi lfs311_Dec/day3_history.txt
+systemctl stop firewalld.service
+dnf install -y iptables-services iptables-utils
+systemctl status iptables
+systemctl start iptables
+systemctl status iptables
+q
+iptables -L -v -n
+iptables --help
+iptables -L -v -n
+iptables -F
+iptables -L -v -n
+iptables -P INPUT DROP
+journalctl
+journalctl -u postfix
+journalctl -b
+journalctl --since "-10min"
+journalctl --since "-1hr"
+journalctl -p err
+journalctl -o verbose -u postfix
+journalctl --since "-8hrs" UNIT=postfix.service
+journalctl --since "-8hr" UNIT=postfix.service
+cd /run/log/journal/
+ls -la
+ls -la c82189cf478b4556b585ec7703a4bdce/
+file c82189cf478b4556b585ec7703a4bdce/system.journal
+vi c82189cf478b4556b585ec7703a4bdce/system.journal
+file c82189cf478b4556b585ec7703a4bdce/system.journal
+mkdir /var/log/journal
+ls -la /var/log/journal
+vi /etc/systemd/journald.conf
+systemctl daemon-reload
+systemctl restart systemd-journald
+cd /var/log
+ls -la journal/
+cd ; history | awk '$1 > 1006' | cut -c 8- > lfs311_Dec/day3_history.txt
+vilfs311_Dec/day3_history.txt
+vi vilfs311_Dec/day3_history.txt
+vi lfs311_Dec/day3_history.txt
+reboot
+iptables -L -v -n
+iptables -P INPUT DROP
+iptables -P OUTPUT DROP
+iptables -L -v -n
+ping localhost
+ping 192.168.1.90
+iptables -A INPUT -i lo -j ACCEPT
+iptables -A OUTPUT -o lo -j ACCEPT
+iptables -A INPUT -p tcp --dport 22 -j ACCPT
+iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+iptables -L -v -n
+iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+iptables -L -v -n
+ping vmware.com
+iptables -I OUTPUT 2 -p udp --dport 53 -j ACCEPT
+iptables -I OUTPUT 2 -p tcp --dport 53 -j ACCEPT
+ping vmware.com
+iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+ping vmware.com
+iptables -A OUTPUT -p icmp -j ACCEPT
+iptables -A INPUT -p icmp -j ACCEPT
+ping vmware.com
+iptables -L -v -n
+ping 192.168.1.1
+iptables-save > /etc/sysconfig/iptables
+vi /etc/sysconfig/iptables
+iptables -A OUTPUT -p tcp --dport 443 -d 192.168.1.1 -j ACCEPT
+iptables-save > /etc/sysconfig/iptables
+vi /etc/sysconfig/iptables
+iptables-restore < /etc/sysconfig/iptables
+iptables -L -v- n
+iptables -L -v -n
+ssh centos8-server
+history
+cd /var/log
+ ls -la
+cd journal/
+ls -la
+ls -la c82189cf478b4556b585ec7703a4bdce/
+journalctl -b
+journalctl
+dnf install rsyslog -y
+vi /etc/rsyslog.conf
+vi /etc/rsyslog.d/00-filter-hosts.conf
+systemctl restart rsyslog.service
+systemctl stop iptables
+systemctl statusp iptables
+systemctl status iptables
+systemctl restart rsyslog.service
+cd /var/log
+ls -la
+cd centos8-server
+ls -la
+cat  chronyd.log
+

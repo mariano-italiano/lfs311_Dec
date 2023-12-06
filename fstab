@@ -1,0 +1,17 @@
+#
+# /etc/fstab
+# Created by anaconda on Fri Jan 17 07:50:39 2020
+#
+# Accessible filesystems, by reference, are maintained under '/dev/disk/'.
+# See man pages fstab(5), findfs(8), mount(8) and/or blkid(8) for more info.
+#
+# After editing this file, run 'systemctl daemon-reload' to update systemd
+# units generated from this file.
+#
+UUID=7b80feee-d9d5-47e9-87e9-040469c6701f /                       ext4    defaults        1 1
+UUID=a3d7bb5c-e282-4f5b-805c-9d0e3cfdad92 swap                    swap    defaults        0 0
+
+centos9:/tmp   /nfs    nfs     defaults,_netdev 0 0
+
+//centos9/private       /private        cifs    credentials=/root/creds,x-systemd.automount,x-systemd.idle-timeout=10,noauto,_netdev 0 0
+
