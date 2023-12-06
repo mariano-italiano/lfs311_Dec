@@ -1,0 +1,99 @@
+dnf install postfix -y
+vi /etc/postfix/main.cf
+postconf -e 'inet_interfaces = all'
+vi /etc/postfix/main.cf
+mail
+mutt
+echo "test message1" | mail -s "Test Subject1" root@localhost
+mutt
+systemctl start postfix
+systemctl status postfix.service 
+mutt
+vi message.txt
+mail -s "Test msg2 " root@localhost < message.txt 
+mutt
+telnet
+telnet localhost 25
+mutt
+vi /etc/postfix/main.cf
+vi /etc/postfix/sasl_passwd
+ls -al /etc/postfix/sasl_passwd
+chmod 0600 /etc/postfix/sasl_passwd
+ls -al /etc/postfix/sasl_passwd
+postmap /etc/postfix/sasl_passwd
+postfix check
+systemctl restart postfix.service 
+less /var/log/maillog
+postqueue -p
+postqueue --help
+man postqueue 
+mail -s "Test msg2 " markuj5@gmail.com < message.txt 
+less /var/log/messages
+less /var/log/maillog
+vi /etc/aliases
+mail -s "Test msg3" linux-admins < message.txt 
+less /var/log/maillog
+mutt
+newaliases
+mail -s "Test msg4" linux-admins < message.txt 
+less /var/log/maillog
+mutt
+su - student
+dnf install dovecot -y
+vi /etc/dovecot/dovecot.conf 
+vi /etc/dovecot/conf.d/10-mail.conf 
+systemctl start dovecot
+systemctl status dovecot
+cat /etc/passwd
+passwd peter
+id peter
+usermod -aG mail peter
+echo "test peter" |  mail -s "test email" peter@localhost
+mutt --help
+mutt -f imap://peter@centos9
+vi /etc/dovecot/conf.d/10-ssl.conf 
+mv /etc/pki/dovecot/certs/dovecot.pem /etc/pki/dovecot/certs/dovecot.old.pem
+mv /etc/pki/dovecot/private/dovecot.pem /etc/pki/dovecot/private/dovecot.old.pem 
+vi /etc/pki/dovecot/dovecot-openssl.cnf 
+cd /usr/share/doc/dovecot/
+ls -la
+vi mkcert.sh
+bash mkcert.sh 
+ls -la /etc/pki/dovecot/certs
+ls -la /etc/pki/dovecot/private/
+systemctl restart dovecot
+mutt -f imap://peter@centos9
+vi /etc/postfix/main.cf
+systemctl restart dovecot
+systemctl restart postfix.service 
+echo "test peter" |  mail -s "test email" markuj5@gmail.com
+vi /etc/postfix/main.cf
+systemctl restart postfix.service 
+echo "test peter" |  mail -s "test email" markuj5@gmail.com
+less /var/log/maillog
+systemctl restart postfix.service 
+vi /etc/postfix/main.cf
+systemctl restart postfix.service 
+echo "test peter" |  mail -s "test email" markuj5@gmail.com
+less /var/log/maillog
+vi /etc/postfix/main.cf
+systemctl restart postfix.service 
+echo "test peter" |  mail -s "test email" markuj5@gmail.com
+less /var/log/maillog
+mutt
+mutt -f imap://peter@centos9
+less /var/log/maillog
+vi /etc/postfix/main.cf
+systemctl restart postfix.service 
+echo "test peter" |  mail -s "test email" markuj5@gmail.com
+less /var/log/maillog
+cd
+mkdir lfs311_Dec/config/postfix ; cp -rp /etc/postfix/main.cf lfs311_Dec/config/postfix/
+cp -rp /etc/aliases lfs311_Dec/config/postfix/
+cp -rp /etc/dovecot/dovecot.conf lfs311_Dec/config/postfix/
+cp -rp /etc/dovecot/conf.d/10-mail.conf lfs311_Dec/config/postfix/
+cd lfs311_Dec/
+git status
+vi day2_history.txt 
+history
+history | awk '$1 > 1006' | cut -c 8- > day3_history.txt
