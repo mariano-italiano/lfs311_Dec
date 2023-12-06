@@ -97,3 +97,128 @@ git status
 vi day2_history.txt 
 history
 history | awk '$1 > 1006' | cut -c 8- > day3_history.txt
+git status
+git add .
+git commit -m "Adding day3 conf files"
+git push
+cd 
+man rsync
+mkdir /var/ftp/uploads
+chown root:ftp /var/ftp/uploads
+dnf install vsftpd -y
+vi /etc/vsftpd/vsftpd.conf 
+vi testfile.txt
+\
+ftp 192.168.1.90
+systemctl start vsftpd
+systemctl status 192.168.1.90
+systemctl status vsftpd.
+systemctl status vsftpd.service 
+ftp 192.168.1.90
+vi /etc/vsftpd/vsftpd.conf 
+systemctl restart vsftpd
+vi /etc/vsftpd/vsftpd.conf 
+ls -la testfile.txt 
+chmod 777 testfile.txt 
+ftp 192.168.1.90
+ls -la /var/ftp/uploads/
+chmod +t /var/ftp/uploads/
+rsync --help
+mkdir /tmp/sync
+touch /tmp/sync/file1.txt
+vi /tmp/sync/file1.txt
+cp /usr/bin/dnf /tmp/sync/
+cp lfs311_Dec/config/http/account-mods.conf /tmp/sync/
+ls -la /tmp/sync/
+rsync -av /tmp/sync/*.txt student@centos8-server:/tmp/rsync_files/
+mkdir /tmp/sync/subfolder
+cp /usr/bin/rsync /tmp/sync/subfolder/
+tree /tmp/sync/subfolder/
+tree /tmp/sync/
+rsync -arv /tmp/sync/* student@centos8-server:/tmp/rsync_files/
+rsync -av /tmp/sync/* student@centos8-server:/tmp/rsync_files/
+rsync --help
+rsync -v /tmp/sync/* student@centos8-server:/tmp/rsync_files/
+rsync -av --no-prem --no-group --no-recursive /tmp/sync/* student@centos8-server:/tmp/rsync_files/
+rsync -av --no-perm --no-group --no-recursive /tmp/sync/* student@centos8-server:/tmp/rsync_files/
+rsync -av --no-perms --no-group --no-recursive /tmp/sync/* student@centos8-server:/tmp/rsync_files/
+ls -la
+ls -la /tmp/sync/
+dnf install squid
+vi /etc/squid/squid.conf
+squid -k parse
+vi /etc/squid/whitelist.txt
+squid -k parse
+systemctl start squid
+vi /etc/squid/squid.conf
+less /var/log/squid/access.log 
+vi /etc/squid/squid.conf
+systemctl restart squid
+systemctl status squid
+vi /etc/squid/squid.conf
+systemctl restart squid
+systemctl status firewalld.service 
+vi /etc/squid/squid.conf
+systemctl restart squid
+vi /etc/squid/squid.conf
+vi /etc/squid/whitelist.txt 
+vi /etc/squid/squid.conf
+systemctl restart squid
+vi /etc/squid/squid.conf
+systemctl restart squid
+vi /etc/squid/squid.conf
+systemctl restart squid
+vi /etc/squid/squid.conf
+systemctl restart squid
+dnf install -y nfs-utils
+mkdir /srv/nfs_{pub,devops,secure}
+chown nfsnobody:nfsnobody /srv/nfs_pub/
+groupadd devops
+chmod -R 2770 /srv/nfs_devops/
+chgrp devops /srv/nfs_devops/
+usermod -aG devops student
+chmod peter /srv/nfs_secure/
+chown peter /srv/nfs_secure/
+ls -la/srv
+ls -la /srv
+vi /etc/exports
+systemctl start nfs
+systemctl start nfs-server.service 
+export -rav
+exportfs -rav
+ls -la /srv/nfs_pub
+id student
+ls /tmp
+ls -la /tmp
+dnf -y install samba samba-client
+systemctl start smb
+systemctl status smb
+mkdir /srv/smbshare
+chmod 777 /srv/smbshare
+vi /etc/samba/smb.conf
+mkdir /srv/private
+chmod 2777 /srv/private
+chgrp devops /srv/private
+id peter
+id student
+smbpasswd -a peter
+smbpasswd -a student
+ls -la /srv/private/
+ls -la
+ls -la /srv/private/
+mkdir lfs311_Dec/file-sharing; cp -rp  /etc/exports lfs311_Dec/config/file-sharing
+cd lfs311_Dec/
+cp -rp /etc/samba/smb.conf config/file-sharing/
+ls
+rm config/file-sharing 
+mv file-sharing config/file-sharing
+cp -rp  /etc/exports config/file-sharing/
+cp -rp /etc/samba/smb.conf config/file-sharing/
+history | awk '$1 > 1006' | cut -c 8- > day3_history.txt
+mount centos9:/srv/nfs_pub /nfs/
+mount centos9:/srv/nfs_devops /nfs/
+umount /nfs
+mount centos9:/tmp /nfs/
+mount -o guest //192.168.1.90/smbshare /smbshare/
+mount -o username=peter //192.168.1.90/private /private/
+mount -o username=student //192.168.1.90/private /private/

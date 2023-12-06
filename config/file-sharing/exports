@@ -1,0 +1,4 @@
+/srv/nfs_pub	192.168.1.0/24(rw,sync,no_root_squash)
+/srv/nfs_devops	192.168.1.0/24(rw,sync)
+/srv/nfs_secure	192.168.1.81(sec=krb5p,rw)
+/tmp		*(ro)
