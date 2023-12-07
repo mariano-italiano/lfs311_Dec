@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo 
+echo "Your OS version is "`cat /etc/centos-release`
+
+echo
+echo "Kernel version: "`uname -r`
+
+echo "Uptime: "`uptime`
+echo
+
+exit 0

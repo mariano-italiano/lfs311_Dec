@@ -1,0 +1,251 @@
+dnf install snapd -y
+ln -s /var/lib/snapd/snap /snap
+systemctl enable --now snapd.socket
+systemctl enable --now snapd.service\
+systemctl enable --now snapd.service
+systemctl status snapd.socket
+systemctl status snapd.service
+systemctl start snapd.service
+systemctl status snapd.service
+snap install lxd
+cat /proc/partitions
+echo "- - -" > /sys/class/scsi_host/host0/scan
+cat /proc/partitions
+echo "- - -" > /sys/class/scsi_host/host1/scan
+echo "- - -" > /sys/class/scsi_host/host2/scan
+cat /proc/partitions
+lxc list
+lxd init
+ip a
+lxc list
+lxc image list images:
+lxc image list images: | grep -e Ubuntu -e x86_64
+lxc launch images:fe87304c968e u1
+lxc launch images:f323b049c17c u1
+lxc list
+lxc delete u1
+lxc launch images:f323b049c17c u1
+lxc list
+lxc stop u1
+lxc start u1
+lxc list
+lxc exec u1 bash
+ip a
+lxc exec u1 bash
+lxc launch images:f323b049c17c u2
+lxc list
+lxc info u1
+lxc image list images: | grep -i debian
+lxc launch images:ec710fb407bd d1
+lxc launch images:ec710fb407bd d1 --vm
+dnf groupinstall "Virtualization Host"
+lxc launch images:ec710fb407bd d1 --vm
+lsmod | grep kvm
+modprobe kvm
+lsmod | grep kvm
+lxc launch images:ec710fb407bd d1 --vm
+lxc list
+lxc profile show
+lxc profile show default
+lxc exec u1 bash
+lxc profile create ubunut-profile
+lxc profile edit ubunut-profile
+lxc profile list ubunut-profile
+lxc profile rename ubunut-profile ubuntu2-profile
+lxc profile list ubunut-profile
+lxc profile list ubuntu2-profile
+lxc config set u1 boot.autostart true
+lxc list
+lxc profile list
+lxc profile add u2 ubuntu2-profile
+lxc profile list
+lxc list
+lxc restart u2
+lxc list
+lxc config edit u2
+lxc profile list
+echo "test lxc file on host" > lxc-file.txt
+cat lxc-file.txt
+lxc file push lxc-file.txt u2/tmp/
+lxc exec u2 bash
+lxc file pull u2/tmp/u2-file.txt .
+ls -la
+cat u2-file.txt
+lxc export u2 /tmp/u2-$(date + '$d-%m-%Y').tar.xz --optimized-storage
+cd /tmp
+ls -la
+ls -lah
+lxc import /tmp/u2-.tar.xz
+lxc list
+lxc delete u2
+lxc delete u2 -f
+lxc config edit u2
+lxc profile remove u2 ubuntu2-profile
+lxc profile add u2 default
+lxc profile remove u2 ubuntu2-profile
+lxc delete u2 -f
+lxc list
+lxc import /tmp/u2-.tar.xz
+lxc list
+lxc start u2
+lxc list
+
+rpm -ivh nano-7.2-4.fc39.x86_64.rpm
+dnf install nano
+dnf localinstall nano-7.2-4.fc39.x86_64.rpm
+rm nano-7.2-4.fc39.x86_64.rpm
+mv /home/student/Downloads/nano-5.6.1-5.el9.x86_64.rpm .
+rpm -ivh nano-5.6.1-5.el9.x86_64.rpm 
+rpm -e nano
+rpm -ivh nano-5.6.1-5.el9.x86_64.rpm 
+rpm -e nano
+dnf localinstall nano-5.6.1-5.el9.x86_64.rpm
+dnf search ssh
+dnf provides "ssh"
+dnf provides "*ssh*"
+dnf repolist
+dnf repolist all
+dnf config-manager --enablerepo highavailability
+dnf config-manager --enable highavailability
+dnf repolist all
+dnf repolist
+dnf config-manager --disable highavailability
+dnf repolist
+cd /etc/yum.d/
+cd /etc/yum.repos.d/
+ls -la
+vi centos.repo
+dnf repolist
+vi centos.repo
+dnf repolist
+cd
+mkdir local_repo
+cd local_repo
+mv /home/student/Downloads/*.rpm .
+ls -al ../
+mv ../nano-5.6.1-5.el9.x86_64.rpm .
+ls -la
+dnf install createrepo -y
+cd ..
+createrepo /root/local_repo/
+cd local_repo/
+ls -la
+ls -la repodata
+dnf config-manager --add-repo file:///root/local_repo
+cd /etc/yum.repos.d/
+ls -la
+vi root_local_repo.repo
+dnf repolist
+dnf modules list
+dnf module list
+cd
+vi lfs311_Dec/day3_history.txt 
+vi getosinfo
+cat /etc/centos-release 
+vi getosinfo
+chmod +x getosinfo
+./getosinfo 
+vi getosinfo
+./getosinfo 
+dnf install rpmdevtools rpmlist
+dnf install rpmdevtools rpmlint
+cd lf
+cd lfs311_Dec/
+ls -la
+mkdir app_getosinfo
+cd app_getosinfo
+rpmdev-setuptree 
+ls -la
+rpmdev-setuptree app_getosinfo
+ls -la
+rpmdev-setuptree 
+ls -la
+mv rpmbuild lfs311_Dec/
+cd lfs311_Dec/
+ls -al
+rm app_getosinfo
+rm app_getosinfo -f
+rm app_getosinfo -fr
+sl -la
+ls -la 
+cd rpmbuild/
+tree
+vi SPECS/getosinfo-1.0.spec
+mkdir SOURCES/getosinfo-1.0/scripts
+mkdir SOURCES/getosinfo-1.0/scripts -p
+mv ../../getosinfo SOURCES/getosinfo-1.0/scripts/
+ls -la SOURCES/getosinfo-1.0/scripts/
+cp SOURCES/
+cd SOURCES/
+tar -cvf getosinfo-1.0.tar.gz getosinfo-1.0
+ls -la
+cd ..
+rpmlint rpmbuild/SPECS/getosinfo-1.0.spec 
+vi rpmbuild/SPECS/getosinfo-1.0.spec
+rpmlint rpmbuild/SPECS/getosinfo-1.0.spec 
+vi rpmbuild/SPECS/getosinfo-1.0.spec
+rpmlint rpmbuild/SPECS/getosinfo-1.0.spec 
+vi rpmbuild/SPECS/getosinfo-1.0.spec
+rpmlint rpmbuild/SPECS/getosinfo-1.0.spec 
+rpmbuild --help
+rpmbuild -ba rpmbuild/SPECS/getosinfo-1.0.spec 
+tree rpmbuild/
+rpmbuild -vba rpmbuild/SPECS/getosinfo-1.0.spec 
+rpmbuild -ba rpmbuild/SPECS/getosinfo-1.0.spec --verbose
+vi rpmbuild/SPECS/getosinfo-1.0.spec
+rpmbuild -ba rpmbuild/SPECS/getosinfo-1.0.spec --verbose
+rpmlint rpmbuild/SPECS/getosinfo-1.0.spec
+vi rpmbuild/SPECS/getosinfo-1.0.spec
+rpmlint rpmbuild/SPECS/getosinfo-1.0.spec
+vi rpmbuild/SPECS/getosinfo-1.0.spec
+rpmlint rpmbuild/SPECS/getosinfo-1.0.spec
+vi rpmbuild/SPECS/getosinfo-1.0.spec
+rpmlint rpmbuild/SPECS/getosinfo-1.0.spec
+vi rpmbuild/SPECS/getosinfo-1.0.spec
+rpmlint rpmbuild/SPECS/getosinfo-1.0.spec
+vi rpmbuild/SPECS/getosinfo-1.0.spec
+cd 
+rpmdev-setuptree 
+cd rpmbuild/
+ls -la
+cd
+cd lfs311_Dec/rpmbuild/SPECS
+vi getosinfo-1.0.spec
+cd
+cd rpmbuild/
+mkdir SOURCES/admin-scripts-1.0/scripts
+mkdir SOURCES/admin-scripts-1.0/scripts -p
+cp -rp ../lfs311_Dec/rpmbuild/SOURCES/getosinfo-1.0/scripts/getosinfo SOURCES/admin-scripts-1.0/scripts/
+ls -al SOURCES/admin-scripts-1.0/scripts/
+cd SOURCES/
+tar -cfz admin-scripts-1.0.tar.gz admin-scripts-1.0
+ls -la
+tar -czf admin-scripts-1.0.tar.gz admin-scripts-1.0
+rm z
+ls -la
+vi ../SPECS/admin-scripts-1.0.spec
+cd ../../
+rpmlint rpmbuild/SPECS/admin-scripts-1.0.spec 
+rpmbuild --bb rpmbuild/SPECS/admin-scripts-1.0.spec
+ls -la rpmbuild/RPMS/
+tree rpmbuild/
+vi rpmbuild/SPECS/admin-scripts-1.0.spec 
+rpmbuild --bb rpmbuild/SPECS/admin-scripts-1.0.spec
+tree rpmbuild/
+rpmbuild --ba rpmbuild/SPECS/admin-scripts-1.0.spec
+tree rpmbuild/
+rpm -ivh rpmbuild/RPMS/noarch/admin-scripts-1.0-0.noarch.rpm 
+getosinfo 
+ls -la
+getosinfo 
+cd lfs311_Dec/
+ls 
+rm -rf rpmbuild/
+mv ../rpmbuild/ .
+tree
+cd
+cd lfs311_Dec/
+vi day4_history.txt 
+history
+vi day4_history.txt 
+history | awk '$1 > 932' | cut -c 8- >> day4_history.txt 

@@ -358,3 +358,26 @@ cd centos8-server
 ls -la
 cat  chronyd.log
 
+dnf module list
+dnf module install php
+dnf remove module php
+dnf remove php
+dnf module remove php
+dnf module install php:7.4/minimal
+dnf module reset php
+dnf module install php:7.4/minimal
+dnf grouplist
+dnf groupinstall "Security Tools"
+dnf groupinstall "System Tools"
+dnf groupinstall "Virtualization Host"
+dnf groupinstall "Virtualization Host" --allowerasing --nobest
+dnf history
+dnf history undo 65
+dnf groupinstall "System Tools"
+dnf groupremove "System Tools"
+dnf history
+dnf history undo 68
+dnf history undo 69
+dnf groupinstall "System Tools"
+dnf history undo 69
+
