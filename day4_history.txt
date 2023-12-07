@@ -321,3 +321,65 @@ cd
 history
 vi lfs311_Dec/day4_history.txt 
 history | awk '$1 > 1104' | cut -c 8- >> lfs311_Dec/day4_history.txt 
+getenforce 
+sestatus
+vi /etc/selinux/config 
+semanage fcontext -l
+semanage port -l
+semanage port -l | grep http
+semanage port -l | grep ssh
+vi /etc/ssh/sshd_config
+systemctl restart sshd
+systemctl status sshd
+less /var/log/messages
+less /var/log/audit/audit.log 
+cat  /var/log/audit/audit.log | grep ssh
+cat  /var/log/audit/audit.log | grep 2222
+dnf install setroubleshoot-server
+systemctl restart sshd
+systemctl status sshd
+less /var/log/messages
+less /var/log/secure
+less /var/log/messages
+vi /etc/ssh/sshd_config
+systemctl restart sshd
+less /var/log/messages
+less /var/log/audit/
+less /var/log/audit/audit.log 
+less /var/log/secure
+dnf install policycoreutils-python policycoreutils-devel
+dnf install policycoreutils-devel
+less /var/log/messages
+systemctl restart sshd
+less /var/log/messages
+reboot
+cat /var/log/messages
+cat /var/log/messages | grep sealert
+grep -r sealert /var/log/*
+sealert -l 08404a94-33b8-4407-b25f-17d27985de44
+grep -r sealert /var/log/*
+sealert -l 2f9c27f2-a105-4024-93c9-dcea1134022b
+semanage port -a -t ssh_port_t -p tcp 2221
+semanage port -l | grep ssh_port_t
+systemctl status sshd
+systemctl restart sshd
+systemctl status sshd
+systemctl start httpd
+systemctl status httpd
+less /var/log/centos9/setroubleshoot.log 
+ sealert -l 7ce9a1f9-f614-41b2-a2a5-f4378d918335
+ls -laZ /var/www/html
+semanage fcontext -a -t httpd_sys_content_t '/web/account/test(/.*)?'
+ls -laZ /web/account/test
+restorecon -Rv /web/account/test
+systemctl start mariadb.service 
+systemctl status mariadb.service 
+vi /etc/httpd/conf.d/sales.conf 
+less /var/log/centos9/setroubleshoot.log | grep sales
+less /var/log/centos9/setroubleshoot.log 
+vi /etc/httpd/conf.d/sales.conf 
+systemctl restart hhtpd
+systemctl restart httpd
+history | awk '$1 > 1104' | cut -c 8- >> lfs311_Dec/day4_history.txt  
+history
+history | awk '$1 > 968' | cut -c 8- >> lfs311_Dec/day4_history.txt  
