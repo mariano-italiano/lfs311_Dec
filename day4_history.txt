@@ -249,3 +249,75 @@ vi day4_history.txt
 history
 vi day4_history.txt 
 history | awk '$1 > 932' | cut -c 8- >> day4_history.txt 
+dnf install haproxy
+vi /etc/haproxy/haproxy.cfg 
+ip addr add 192.168.1.91/24 dev ens33 
+systemctl restart haproxy.service 
+vi /etc/haproxy/haproxy.cfg 
+systemctl restart haproxy.service 
+vi /etc/haproxy/haproxy.cfg 
+systemctl restart haproxy.service 
+for host in /sys/class/scsi_host/*; do echo "- - -" | tee $host/scan; ls /dev/sd*; done
+cat /proc/partitions 
+dnf install mdadm -y
+mdadm -E /dev/sd[b-d]
+mdadm -E /dev/sd[b-e]
+mdadm --create /dev/md5 --level=5 --raid-devices=3 /dev/sd[b-d]1
+mdadm --create /dev/md5 --level=5 --raid-devices=3 /dev/sd[b-d]
+mdadm -D /dev/md5
+mdadm --manage --add /dev/md5 /dev/sde
+mdadm -D /dev/md5
+mkfs.xfs /dev/md5
+mkdir /raid5
+mount /dev/md5 /raid5/
+df -h
+cd /raid5/
+man dd
+dd if=/dev/urandom of=file1 bs=1M count=1024
+dd if=/dev/urandom of=file2 bs=1M count=1024
+dd if=/dev/urandom of=file3 bs=1M count=1024
+df -h
+cd
+mdadm -D /dev/md5
+mdadm --manage --fail /dev/md5 /dev/sdc
+mdadm -D /dev/md5
+cd /raid5
+ls -al
+touch file
+mdadm --detail --scan --verbose >> /etc/mdadm.conf
+vi /etc/mdadm.conf
+cd
+cp -rp /etc/mdadm.conf lfs311_Dec/config/
+cp -rp /etc/haproxy/haproxy.cfg lfs311_Dec/config/
+dnf install mariadb-server 
+systemctl start mariadb.service 
+systemctl status mariadb.service
+mysql_secure_installation 
+mysqladmin -u root -p
+mysqladmin -u root -p version
+mysqladmin -u root -p 
+mysqladmin -u root
+mysql -u root -p
+mysql -u sqladmin -p
+dnf install php php-common php-pecl-apcu php-cli php-mysqlnd
+systemctl status httpd
+systemctl start httpd
+systemctl status httpd
+systemctl stop haproxy.service 
+systemctl start httpd
+vi /etc/httpd/conf.d/account.conf 
+cd /web/account/test/
+ls -la
+systemctl restart httpd
+rm index.html 
+vi index.php
+vi add_car_form.php
+vi delete_car_form.php
+vi all_cars_table.php
+vi phpinfo.php
+ls -la
+mysql -u root -p
+cd
+history
+vi lfs311_Dec/day4_history.txt 
+history | awk '$1 > 1104' | cut -c 8- >> lfs311_Dec/day4_history.txt 
